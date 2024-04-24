@@ -16,6 +16,16 @@ struct CreateGroupMemberView: View {
         NavigationStack{
             VStack{
                 
+                if users.isEmpty {
+                    NoMemberView()
+                } else {
+                    MemberList(users: $users)
+                }
+                
+                
+                
+                
+                Spacer()
                 HStack(spacing: 12) {
                     FSTextField(text: $userName, placeholder: "Nhập tên thành viên", hasLabel: false)
                     
@@ -32,20 +42,7 @@ struct CreateGroupMemberView: View {
                     .disabled(userName.isEmpty)
                 }.padding()
                 
-                if users.isEmpty {
-                                    NoMemberView()
-                                } else {
-                                    MemberList(users: $users)
-                                }
-
-                
-                
-                
-                Spacer()
-                
-            }.navigationTitle(
-                Text(groupName).font(.headline)
-            )
+            }.navigationTitle(groupName)
         }
     }
     
@@ -86,16 +83,16 @@ struct MemberList: View {
             
             List(users, id: \.id) { user in
                 NavigationLink {
-                    Text("User Detail View " + user.name)
+                    DetailMemberScreen(user: user)
                 } label: {
                     Text(user.name)
                 }
             }.listStyle(PlainListStyle())
             
-                
+            
             
         }.padding()
-
+        
     }
     
 }

@@ -39,10 +39,7 @@ struct CreateNewGroupScreen: View {
             
             //            Spacer()
         }
-        .navigationTitle(
-            Text("Tạo nhóm")
-                .font(.headline)
-        )
+        .navigationTitle("Tạo nhóm") // Use navigationBarTitle instead of navigationTitle
         .navigationBarItems(leading: Button("Hủy") {
             presentationMode.wrappedValue.dismiss()
         })

@@ -10,5 +10,7 @@ import SwiftUI
 
 struct User {
     let id: Int
-    let name: String
+    var name: String
 }
+
+
