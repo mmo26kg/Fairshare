@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
+
 
 enum Currency {
     case usd
@@ -15,7 +17,8 @@ enum Currency {
     // Thêm các loại tiền tệ khác nếu cần
 }
 
-struct Group {
+class LocalGroup {
+    let id = UUID()
     var name: String
     var avatar: Image?
     var currency: Currency?
@@ -28,13 +31,4 @@ struct Group {
 }
 
 
-struct MockupData {
-    static let groups: [Group] = [
-        Group(name: "Nhóm A", currency: .usd),
-        Group(name: "Nhóm B", currency: .eur),
-        Group(name: "Nhóm C", currency: .gbp),
-        Group(name: "Nhóm D", currency: .usd),
-        Group(name: "Nhóm E", currency: .eur),
-        Group(name: "Nhóm F", currency: .gbp)
-    ]
-}
+

@@ -7,10 +7,15 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
-struct User {
-    let id: Int
+class LocalUser: Identifiable {
+    let id = UUID()
     var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
 }
 
 
